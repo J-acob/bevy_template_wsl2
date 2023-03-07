@@ -1,6 +1,7 @@
 # What is this?
 
 This is a minimalistic template meant for making games via bevy on wsl2. It is also set up to export to various platforms such as windows, linux, and web
+
 ---
 
 # Dependencies
