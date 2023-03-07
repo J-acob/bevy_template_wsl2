@@ -1,0 +1,39 @@
+[target.x86_64-pc-windows-msvc]
+linker = "lld"
+rustflags = [
+    "-Zshare-generics=no",
+    "-Lnative=/opt/xwin/crt/lib/x86_64",
+    "-Lnative=/opt/xwin/sdk/lib/um/x86_64",
+    "-Lnative=/opt/xwin/sdk/lib/ucrt/x86_64"
+]
+
+[target.x86_64-pc-windows-gnu]
+linker = "lld"
+rustflags = [
+
+]
+
+[target.x86_64-unknown-linux-gnu]
+linker = "clang"
+rustflags = [
+    "-C", 
+    "link-arg=-fuse-ld=/usr/bin/mold",
+]
+
+[target.wasm32-unknown-unknown]
+runner = "wasm-server-runner"
+
+
+[alias]
+build_windows = "build_windows_msvc" # Acts as a 'default'
+build_windows_msvc = "build --target=x86_64-pc-windows-msvc"
+build_windows_mingw = "build --target=x86_64-pc-windows-gnu"
+build_linux = "build --target=x86_64-unknown-linux-gnu"
+build_web = ""
+
+run_windows = "run_windows_msvc"
+run_windows_msvc = "build --target=x86_64-pc-windows-msvc"
+run_windows_mingw = "build --target=x86_64-pc-windows-gnu"
+run_linux = "run --target=x86_64-unknown-linux-gnu"
+run_web = "cargo run --target wasm32-unknown-unknown"
+
