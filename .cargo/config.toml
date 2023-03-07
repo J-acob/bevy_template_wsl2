@@ -23,7 +23,6 @@ rustflags = [
 [target.wasm32-unknown-unknown]
 runner = "wasm-server-runner"
 
-
 [alias]
 build_windows = "build_windows_msvc" # Acts as a 'default'
 build_windows_msvc = "build --target=x86_64-pc-windows-msvc"
