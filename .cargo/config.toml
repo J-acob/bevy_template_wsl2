@@ -23,6 +23,10 @@ rustflags = [
 [target.wasm32-unknown-unknown]
 runner = "wasm-server-runner"
 
+# Change if needed
+[env]
+WGPU_BACKEND="vulkan"
+
 [alias]
 build_windows = "build_windows_msvc" # Acts as a 'default'
 build_windows_release = "build_windows --no-default-features --release"

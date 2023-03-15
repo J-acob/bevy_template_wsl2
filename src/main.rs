@@ -7,6 +7,7 @@ fn main() {
                 // For web builds for embedding into <div>'s with id=bevy
                 canvas: Some("#bevy".to_string()),
                 fit_canvas_to_parent: true,
+                title: "Template".to_string(),
                 ..default()
             }),
             ..default()
