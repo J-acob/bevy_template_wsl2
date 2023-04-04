@@ -1,15 +1,10 @@
-[package]
-name = "bevy_template_wsl2"
-version = "0.1.2"
-edition = "2021"
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[workspace]
+resolver = "2"
 
-[dependencies]
-bevy = { version = "0.10.0"}
-
-[features]
-default = ["fast-compile"]
-fast-compile = ["bevy/dynamic_linking"]
+members = [
+    "template_game",
+    "template_lib",
+]
 
 # Enable a small amount of optimization in debug mode
 [profile.dev]
