@@ -4,7 +4,7 @@ rustflags = [
     "-Zshare-generics=no",
     "-Lnative=/opt/xwin/crt/lib/x86_64",
     "-Lnative=/opt/xwin/sdk/lib/um/x86_64",
-    "-Lnative=/opt/xwin/sdk/lib/ucrt/x86_64"
+    "-Lnative=/opt/xwin/sdk/lib/ucrt/x86_64",
 ]
 
 [target.x86_64-pc-windows-gnu]
@@ -26,6 +26,7 @@ runner = "wasm-server-runner"
 # Change if needed
 [env]
 WGPU_BACKEND="vulkan"
+CARGO_FEATURE_PURE="1" # Temporary workaround for https://github.com/bevyengine/bevy/issues/10425
 
 [alias]
 build_windows = "build_windows_msvc" # Acts as a 'default'
@@ -43,7 +44,7 @@ build_web_release = "build_web --release"
 run_windows = "run_windows_msvc"
 run_windows_release = "run_windows --no-default-features --release"
 run_windows_msvc = "run --target=x86_64-pc-windows-msvc --no-default-features"
-run_windows_mingw = "run --target=x86_64-pc-windows-gnu --no-default-features"
+run_windows_mingw = "run --target=x86_64-pc-windows-gnu"
 
 run_linux = "run --target=x86_64-unknown-linux-gnu"
 run_linux_release = "run_linux --no-default-features --release"
